@@ -1,0 +1,97 @@
+<div>
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex justify-content-between">
+                <h4>Creacion de usuario</h4>
+                <a href="#" routerLink="/user/index" class="btn btn-primaryt">Atrás</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="content-center">
+                <form [formGroup]="form" (ngSubmit)="submit()">
+                    <div class="form-group row">
+                        <div class="col-md-6 ">
+                            <label for="title">Nombre:</label>
+                            <input formControlName="nombre" id="nombre" type="text" class="form-control">
+                            <div *ngIf="f['nombre'].touched && f['nombre'].invalid" class="alert alert-danger">
+                                <div *ngIf="f['nombre']['errors']">*El campo nombre es requerido.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6 ">
+                            <label for="apellido">Apellidos:</label>
+                            <input formControlName="apellido" id="apellido" type="text" class="form-control">
+                            <div *ngIf="f['apellido'].touched && f['apellido'].invalid" class="alert alert-danger">
+                                <div *ngIf="f['apellido']['errors']">*El campo apellidos es requirido.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6 ">
+                            <label for="cedula">Cédula:</label>
+                            <input formControlName="cedula" id="cedula" type="text" class="form-control">
+                            <div *ngIf="f['cedula'].touched && f['cedula'].invalid" class="alert alert-danger">
+                                <div *ngIf="f['cedula']['errors']">*El campo cédula es requirido.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6 ">
+                            <label for="correo">Correo:</label>
+                            <input formControlName="correo" id="correo" type="text" class="form-control">
+                            <div *ngIf="f['correo'].touched && f['correo'].invalid" class="alert alert-danger">
+                                <div *ngIf="f['correo']['errors']">*El campo correo es requerido.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6 ">
+                            <label for="pais">Pais</label>
+                            <select name="pais" formControlName="pais" class="form-control custom-select custom-select-lg mb-3" id="pais">
+                          <option value="" disabled class="text-center"> Seleccione un pais </option>
+                          <option *ngFor = "let item of countries" value="{{ item }}">{{ item }}</option>
+                        </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6 ">
+                            <label for="direccion">Direccion:</label>
+                            <input formControlName="direccion" id="direccion" type="text" class="form-control">
+                            <div *ngIf="f['direccion'].touched && f['direccion'].invalid" class="alert alert-danger">
+                                <div *ngIf="f['direccion']['errors']">*El campo direccion es requerido.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row ">
+                        <div class="col-md-6 ">
+                            <label for="telefono">Telefono:</label>
+                            <input formControlName="telefono" id="telefono" type="text " class="form-control ">
+                            <div *ngIf="f['telefono'].touched && f['telefono'].invalid " class="alert alert-danger ">
+                                <div *ngIf="f['telefono']['errors']">*El campo telefono es requerido.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-6 ">
+                            <label for="categoria">Categoria</label>
+                            <select name="categoria" formControlName="categoria" class="form-control custom-select custom-select-lg mb-3" id="categoria">
+                            <option value="" disabled class="text-center">Seleccione La Categoría Del Usuario </option>
+                            <option *ngFor = "let item of data" value="{{ item.id }}">{{ item.name }}</option>
+                          </select>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary " type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

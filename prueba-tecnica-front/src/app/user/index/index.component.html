@@ -1,0 +1,49 @@
+<section>
+
+    <div class="card">
+
+        <div class="card-header text-center">
+            <div class="d-flex justify-content-between">
+                <h4>Lista de usuarios</h4>
+                <a routerLink="/user/create" class="btn btn-success">Crear nuevo Usuario</a>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr class="text-center">
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Cedula</th>
+                            <th>Correo</th>
+                            <th>Pais</th>
+                            <th>Direccion</th>
+                            <th>Telefono</th>
+                            <th>categoría</th>
+                            <th width="220px">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users">
+                            <td>{{ user.id }}</td>
+                            <td>{{ user.nombre }}</td>
+                            <td>{{ user.apellido }}</td>
+                            <td>{{ user.cedula }}</td>
+                            <td>{{ user.correo }}</td>
+                            <td>{{ user.pais }}</td>
+                            <td>{{ user.direccion }}</td>
+                            <td>{{ user.telefono }}</td>
+                            <td>{{ user.categoria }}</td>
+                            <td class="text-center">
+                                <a routerLink="/user/edit/{{ user.id }}" class="btn m-2 btn-primary">Editar</a>
+                                <button type="button" (click)="delete(user.id)" class="btn btn-danger">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
